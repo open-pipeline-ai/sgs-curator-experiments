@@ -120,8 +120,7 @@ You can commit **your own new notebooks** directly to `main` without a PR (for c
    git add notebooks/chunking/my_experiment_jp.ipynb
    git commit -m "feat: add semantic chunking experiment"
    git push origin main
-   ```
-   ```
+    ```
 
 ### Notebook Ownership
 
