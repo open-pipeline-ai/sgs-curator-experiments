@@ -87,32 +87,121 @@ data/
 
 **Note:** Large datasets should not be committed. Use `.gitignore` to exclude them.
 
+
 ## 🤝 Contributing Experiments
 
-We welcome experimental contributions! To add a new notebook:
+We welcome experimental contributions! Here's how to add your work:
 
-1. **Choose the right category:**
-   - `notebooks/chunking/` - Chunking strategies
-   - `notebooks/retrieval/` - Retrieval and embeddings
-   - `notebooks/contradiction_detection/` - Contradiction workflows
-   - `notebooks/end_to_end/` - Full pipelines
+### Adding Your Own Notebook
 
-2. **Follow the notebook template:**
-   - Add a title and purpose section
-   - Include workflow overview
-   - Document parameters and configurations
-   - Add results/findings section
-   - Include references to related work
+You can commit **your own new notebooks** directly to `main` without a PR (for changes to existing notebooks or shared resources, see below):
 
-3. **Update requirements.txt** if you add new dependencies
+1. **Create your notebook** in the appropriate directory:
+   ```bash
+   # Navigate to the right category
+   cd notebooks/chunking/  # or retrieval/, contradiction_detection/, etc.
+   
+   # Create your notebook (use descriptive naming)
+   jupyter lab
+   ```
 
-4. **Create a PR** with your notebook and a brief description
+2. **Naming convention:** Use `{topic}_{your_initials}.ipynb`
+   - ✅ Good: `semantic_chunking_jp.ipynb`, `agentic_retrieval_rc.ipynb`
+   - ❌ Avoid: `test.ipynb`, `notebook1.ipynb`, `final_final.ipynb`
 
-## 🔗 Related Projects
+3. **Add context** at the top of your notebook:
+   - Title and purpose
+   - Your name/initials
+   - Date created
+   - Key dependencies
 
-- [chunking-toolkit](https://github.com/open-pipeline-ai/chunking-toolkit) - Production chunking library
-- [retrieval-toolkit](https://github.com/open-pipeline-ai/retrieval-toolkit) - Production retrieval library
-- SGS Curator App - Main application (link TBD)
+4. **Commit directly:**
+   ```bash
+   git add notebooks/chunking/my_experiment_jp.ipynb
+   git commit -m "feat: add semantic chunking experiment"
+   git push origin main
+   ```
+   ```
+
+### Notebook Ownership
+
+- 📓 **Your notebooks** = Your workspace. Commit freely, iterate quickly.
+- 🤝 **Others' notebooks** = Read-only. Don't modify without asking first.
+- 🔄 **Want to build on someone's work?** Create your own variant (e.g., `semantic_chunking_v2_rc.ipynb`)
+
+### When to Use Pull Requests
+
+**Create a PR for changes to shared resources:**
+
+- ✅ README files (any directory)
+- ✅ `requirements.txt` (adding new dependencies)
+- ✅ Shared utilities (`shared/*.py`)
+- ✅ Someone else's notebook (ask them first!)
+- ✅ Documentation or guidelines
+
+**Why?** Shared resources affect everyone, so they deserve review.
+
+### Workflow for Shared Changes
+
+```bash
+# 1. Create a branch
+git checkout -b docs/update-retrieval-readme
+
+# 2. Make changes
+# Edit files...
+
+# 3. Commit and push
+git add .
+git commit -m "docs: clarify retrieval workflow"
+git push origin docs/update-retrieval-readme
+
+# 4. Create PR on GitHub
+# Request review from affected team members
+```
+
+### Keeping Dependencies Updated
+
+When adding new libraries to your notebook:
+
+1. **Test locally first** to ensure they work
+2. **Update requirements.txt** via PR
+3. **Document version** if specific version is needed
+4. **Consider conda users** - stick to pip-installable packages when possible
+
+Example PR:
+```bash
+git checkout -b deps/add-plotly
+# Add plotly>=5.14.0 to requirements.txt
+git commit -m "deps: add plotly for visualization"
+git push origin deps/add-plotly
+# Create PR
+```
+
+### Collaboration Tips
+
+- 💬 **Discuss big ideas** in GitHub Issues/Discussions before implementing
+- 🏷️ **Tag your notebooks** with keywords in the filename or README
+- 📊 **Share findings** by updating the relevant directory README
+- 🔗 **Link to production code** if your experiment informs a toolkit feature
+- 🧹 **Archive old notebooks** - move to `notebooks/archive/` if no longer relevant
+
+### Quality Guidelines (Suggestions, Not Requirements)
+
+- Include purpose and methodology at the top
+- Document key findings or insights
+- Add visualizations where helpful
+- Keep notebooks focused (one experiment per notebook)
+- Clear cell outputs before committing (optional - depends on preference)
+- Use markdown cells to explain your thinking
+
+### Getting Feedback
+
+Want feedback on your experiment?
+
+1. **Mention in Slack/email** - "Added new chunking experiment in notebooks/chunking/"
+2. **Create a GitHub Discussion** - For open-ended questions
+3. **Create an Issue** - If you found something that should be addressed
+4. **Schedule a review** - Demo your notebook in a team meeting
 
 ## 📝 Notebook Guidelines
 
