@@ -4,7 +4,7 @@ Experimental notebooks and prototypes for the SGS Curator App project, exploring
 
 ## 🎯 Purpose
 
-This repository contains Jupyter notebooks used to:
+This repository contains Jupyter notebooks and Python scripts used to:
 - Evaluate different chunking strategies
 - Test embedding models and retrieval approaches
 - Prototype contradiction detection workflows
@@ -13,29 +13,50 @@ This repository contains Jupyter notebooks used to:
 
 ## 📁 Repository Structure
 
+
+## 📁 Repository Structure
+
 ```
 sgs-curator-experiments/
-├── notebooks/
-│   ├── chunking/              # Chunking strategy experiments
-│   ├── retrieval/             # Retrieval and embedding experiments
-│   ├── contradiction_detection/  # Contradiction detection workflows
-│   └── end_to_end/            # Full pipeline experiments
-├── data/
-│   └── sample_datasets/       # Test datasets (following Redmine structure)
-├── shared/                    # Shared utility code
-└── requirements.txt           # Common dependencies
+├── archive/                      # Archived/deprecated experiments
+├── chunking/                     # Chunking strategy experiments
+│   ├── README.md
+│   └── chunking_exercise_jp.ipynb
+├── retrieval/                    # Retrieval and embedding experiments
+│   └── README.md
+├── agents/                       # Agent framework evaluations
+│   ├── README.md
+│   ├── autogen-ms/              # Microsoft's AutoGen
+│   ├── ag2/                     # Community fork (AutoGen v2)
+│   ├── crewai/                  # CrewAI framework
+│   ├── langgraph/               # LangGraph
+│   ├── langchain-agents/        # LangChain agents
+│   ├── pure-python/             # Custom implementations
+│   └── comparison/              # Cross-framework analysis
+├── data/                         # Test datasets
+│   └── README.md
+├── shared/                       # Shared utility code
+│   └── __init__.py
+├── requirements.txt              # Common dependencies
+├── LICENSE
+└── README.md
 ```
 
-## 📓 Available Notebooks
+# 📓 Available Notebooks & Scripts
 
 ### Chunking
-- **chunking_exercise.ipynb** - Evaluates how different chunking strategies (fixed-size, recursive, semantic) affect the ability to detect contradictions using semantic similarity between chunks
+- **chunking_exercise_jp.ipynb** - Evaluates how different chunking strategies (fixed-size, recursive, semantic) affect the ability to detect contradictions using semantic similarity between chunks
 
 ### Retrieval
 - Coming soon...
 
+### Agents
+- See [agents/README.md](agents/README.md) for framework evaluations
+- Both notebooks and scripts welcome
+
 ### Contradiction Detection
 - Coming soon...
+
 
 ## 🚀 Getting Started
 
@@ -62,9 +83,19 @@ pip install -r requirements.txt
 jupyter lab
 ```
 
-### Running Notebooks
+### Running Notebooks & Scripts
 
-Navigate to the `notebooks/` directory and open any `.ipynb` file.
+Navigate to the appropriate directory (`chunking/`, `retrieval/`, `agents/`, etc.) and open any `.ipynb` file or run any `.py` script.
+
+**For notebooks:**
+```bash
+jupyter lab chunking/
+```
+
+**For scripts:**
+```bash
+python chunking/my_experiment.py
+```
 
 Each notebook includes:
 - Purpose and scope
@@ -94,12 +125,12 @@ We welcome experimental contributions! Here's how to add your work:
 
 ### Adding Your Own Notebook
 
-You can commit **your own new notebooks** directly to `main` without a PR (for changes to existing notebooks or shared resources, see below):
+You can commit **your own new notebooks or scripts** directly to `main` without a PR (for changes to existing notebooks or shared resources, see below):
 
-1. **Create your notebook** in the appropriate directory:
+1. **Create your notebook or script** in the appropriate directory:
    ```bash
    # Navigate to the right category
-   cd notebooks/chunking/  # or retrieval/, contradiction_detection/, etc.
+   cd chunking/  # or retrieval/, agents/, etc.
    
    # Create your notebook (use descriptive naming)
    jupyter lab
@@ -117,10 +148,10 @@ You can commit **your own new notebooks** directly to `main` without a PR (for c
 
 4. **Commit directly:**
    ```bash
-   git add notebooks/chunking/my_experiment_jp.ipynb
+   git add chunking/my_experiment_jp.ipynb
    git commit -m "feat: add semantic chunking experiment"
    git push origin main
-    ```
+   ```
 
 ### Notebook Ownership
 
@@ -130,13 +161,20 @@ You can commit **your own new notebooks** directly to `main` without a PR (for c
 
 ### When to Use Pull Requests
 
-**Create a PR for changes to shared resources:**
+**Always create a PR for:**
 
+- ✅ Modifying **someone else's existing notebook** (ask them first!)
+- ✅ Modifying **your own notebook** if others are using/referencing it
 - ✅ README files (any directory)
 - ✅ `requirements.txt` (adding new dependencies)
 - ✅ Shared utilities (`shared/*.py`)
-- ✅ Someone else's notebook (ask them first!)
 - ✅ Documentation or guidelines
+
+**Direct commit to `main` is fine for:**
+
+- ✅ Your own new notebook
+- ✅ Updates to your own notebook that no one else is using
+- ✅ Quick fixes to your own work (typos, small improvements)
 
 **Why?** Shared resources affect everyone, so they deserve review.
 
