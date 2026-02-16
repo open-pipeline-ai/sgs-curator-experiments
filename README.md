@@ -13,9 +13,6 @@ This repository contains Jupyter notebooks and Python scripts used to:
 
 ## 📁 Repository Structure
 
-
-## 📁 Repository Structure
-
 ```
 sgs-curator-experiments/
 ├── archive/                      # Archived/deprecated experiments
