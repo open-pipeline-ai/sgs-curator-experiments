@@ -1,4 +1,4 @@
-# SGS Curator App - Experiments
+# AI Curator App - Experiments
 
 Experimental notebooks and prototypes for the SGS Curator App project, exploring chunking strategies, retrieval methods, and contradiction detection workflows.
 
@@ -14,7 +14,7 @@ This repository contains Jupyter notebooks and Python scripts used to:
 ## 📁 Repository Structure
 
 ```
-sgs-curator-experiments/
+ai-curator-experiments/
 ├── archive/                      # Archived/deprecated experiments
 ├── chunking/                     # Chunking strategy experiments
 │   ├── README.md
